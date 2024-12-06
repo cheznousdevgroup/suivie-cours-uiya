@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suivi des Cours - Université Internationale de Yamoussoukro</title>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- AdminLTE style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background: url('dist/img/student.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .hero-section {
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 100px 0;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      animation: fadeInDown 2s;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      animation: fadeInUp 2s;
+    }
+
+    .btn-primary {
+      animation: pulse 2s infinite;
+    }
+
+    .card {
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+      }
+      70% {
+        box-shadow: 0 0 15px 15px rgba(255, 255, 255, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+      }
+    }
+  </style>
+  <style>
+    #features {
+      background: linear-gradient(135deg, #4e73df, #1cc88a);
+      color: #fff;
+    }
+  
+    #features h2 {
+      color: #fff;
+    }
+  
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      transition: transform 0.3s ease, background 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .card:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.3);
+    }
+  
+    .card-body i {
+      color: #ffc107;
+      transition: color 0.3s ease;
+    }
+  
+    .card:hover .card-body i {
+      color: #ff6f61;
+    }
+    .main-header.navbar {
+      background: linear-gradient(135deg, #1cc88a, #4e73df);
+      border-bottom: none;
+      transition: background 0.3s ease;
+    }
+  
+    .main-header.navbar a.nav-link {
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+  
+    .main-header.navbar a.nav-link:hover {
+      color: #ffc107;
+    }
+  
+    .main-header.navbar .navbar-brand {
+      color: #fff;
+      font-weight: bold;
+    }
+  
+    .main-header.navbar .navbar-brand:hover {
+      color: #ff6f61;
+    }
+    #departments {
+      position: relative;
+      z-index: 1;
+      padding: 5rem 0;
+      color: #fff;
+    }
+  
+    #departments::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
+      z-index: -1;
+    }
+  
+    #departments h2 {
+      color: #ffc107; /* Titre en jaune */
+      font-weight: bold;
+    }
+  
+    .card {
+      background: rgba(255, 255, 255, 0.1); /* Fond légèrement transparent */
+      border: none;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+  
+    .card-body {
+      color: #fff;
+    }
+  
+    .card:hover {
+      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.3); /* Effet au survol */
+    }
+  
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffc107; /* Texte en jaune pour contraste */
+    }
+    #contactModal .modal-content {
+      border-radius: 15px;
+      padding: 2rem;
+      background: #f8f9fa;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    #contactModal h5 {
+      color: #4e73df;
+      font-weight: bold;
+    }
+  
+    .modal-header .close {
+      font-size: 1.5rem;
+      color: #4e73df;
+    }
+  
+    .form-control {
+      border-radius: 8px;
+      border: 1px solid #ced4da;
+      box-shadow: none;
+      transition: border-color 0.3s ease;
+    }
+  
+    .form-control:focus {
+      border-color: #4e73df;
+      outline: none;
+      box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+    }
+  
+    .btn-primary {
+      background: #4e73df;
+      border: none;
+      border-radius: 8px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+  
+    .btn-primary:hover {
+      background: #375a7f;
+      transform: scale(1.05);
+    }
+  </style>
+  
+    
+</head>
+<body class="hold-transition layout-top-nav">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+    <div class="container">
+      <a href="#" class="navbar-brand">
+        <span class="brand-text font-weight-light"><img src="dist/img/LOGO UIYA.png" width="50" alt=""> | Suivi des Cours</span>
+      </a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="#features" class="nav-link">Fonctionnalités</a>
+          </li>
+          <li class="nav-item">
+            <a href="#departments" class="nav-link">Départements</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal">
+              <i class="fas fa-user-circle"></i> Connexion 
+              <span class="badge badge-danger ml-1">Nouveau</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Se connecter</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="username">Nom d'utilisateur</label>
+              <input type="text" class="form-control" id="username" placeholder="Entrez votre nom d'utilisateur" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Mot de passe</label>
+              <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe" required>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary btn-lg">Se connecter</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Hero Section -->
+  <div class="hero-section text-center">
+    <div class="container">
+      <h1 class="display-4">Une Plateforme Moderne pour l'Excellence Éducative</h1>
+      <p class="lead">Suivez la progression des cours et évaluez la qualité des enseignements en toute simplicité.</p>
+      <a href="#features" class="btn btn-primary mt-3">Découvrir les fonctionnalités</a>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <section id="features" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Fonctionnalités</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body text-center">
+              <i class="fas fa-chalkboard-teacher fa-3x mb-3"></i>
+              <h5 class="card-title">Gestion des Cours</h5>
+              <p class="card-text">Créez et gérez les cours, affectez des enseignants et définissez les périodes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body text-center">
+              <i class="fas fa-calendar-check fa-3x mb-3"></i>
+              <h5 class="card-title">Suivi des Séances</h5>
+              <p class="card-text">Marquez les séances comme terminées et suivez leur progression.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body text-center">
+              <i class="fas fa-star fa-3x mb-3"></i>
+              <h5 class="card-title">Évaluations</h5>
+              <p class="card-text">Les étudiants évaluent chaque séance pour améliorer les enseignements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Departments Section -->
+  <section id="departments" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Nos Départements</h2>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Sciences et Technologies</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Sciences Juridiques</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Communication</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Sciences Économiques et Gestion</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-1" style="background-color: #375a7f;">
+    <div class="container mt-2">
+      <h2 class="text-center mb-2"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#contactModal">
+        Contactez-nous
+      </button></h2>
+      <p class="text-center" style="color: #ffc107;">Pour toute information supplémentaire, veuillez nous écrire à <strong>info@uiya.ci</strong>.</p>
+    </div>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contactModalLabel">Contactez-nous</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="name">Nom</label>
+              <input type="text" class="form-control" id="name" placeholder="Entrez votre nom">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea class="form-control" id="message" rows="4" placeholder="Votre message..."></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary btn-lg">Envoyer</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </section>
+
+</div>
+
+<!-- Scripts -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="dist/js/adminlte.min.js"></script>
+<script>
+  // Sélectionner le formulaire et ajouter un gestionnaire d'événement pour la soumission
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Empêcher l'envoi du formulaire
+
+    // Obtenir les valeurs du formulaire
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    // Pour la démonstration, nous vérifions juste que les champs ne sont pas vides
+    if (username && password) {
+      // Simuler une connexion réussie (ajoutez votre logique de validation ici)
+      alert('Connexion réussie');
+
+      // Rediriger vers home.html
+      window.location.href = 'home.html';
+    } else {
+      alert('Veuillez remplir tous les champs');
+    }
+  });
+</script>
+
+</body>
+</html>
